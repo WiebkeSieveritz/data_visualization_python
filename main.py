@@ -68,6 +68,7 @@ arith_mean_phd_male = np.mean(phd_male_salaries)
 arith_mean_phd_female = np.mean(phd_female_salaries)
 arith_mean_phd_total = np.mean(phd_total_salaries)
 
+# print(arith_mean_male, arith_mean_female, arith_mean_total, arith_mean_bachelor_male, arith_mean_master_male, arith_mean_phd_male, arith_mean_bachelor_female, arith_mean_master_female, arith_mean_phd_female, arith_mean_bachelor_total, arith_mean_master_total, arith_mean_phd_total)
 
 # median (total, male and female):
 salaries = salary_data['Salary'].values
@@ -120,14 +121,15 @@ median_phd_male = np.median(phd_male_salaries)
 median_phd_female = np.median(phd_female_salaries)
 median_phd_total = np.median(phd_total_salaries)
 
+# print(median_male, median_female, median_total, median_bachelor_male, median_master_male, median_phd_male, median_bachelor_female, median_master_female, median_phd_female, median_bachelor_total, median_master_total, median_phd_total)
 
 # trimmed mean (total, male and female):
 from scipy.stats import trim_mean
-trimmed_mean_total = trim_mean(salaries, proportiontocut=0.2)
+trimmed_mean_total = trim_mean(salaries, proportiontocut=0.1)
 
-trimmed_mean_male = trim_mean(male_salaries, proportiontocut=0.2)
+trimmed_mean_male = trim_mean(male_salaries, proportiontocut=0.1)
 
-trimmed_mean_female = trim_mean(female_salaries, proportiontocut=0.2)
+trimmed_mean_female = trim_mean(female_salaries, proportiontocut=0.1)
 # without using a library:
 # sorted_salaries = sorted(salaries)
 # trim_count = int(len(sorted_salaries) * 0.2)
@@ -136,15 +138,17 @@ trimmed_mean_female = trim_mean(female_salaries, proportiontocut=0.2)
 
 
 # trimmed mean (education level - total, male and female):
-trimmed_mean_bachelor_male = trim_mean(bachelor_male_salaries, proportiontocut=0.2)
-trimmed_mean_bachelor_female = trim_mean(bachelor_female_salaries, proportiontocut=0.2)
-trimmed_mean_bachelor_total = trim_mean(bachelor_total_salaries, proportiontocut=0.2)
-trimmed_mean_master_male = trim_mean(master_male_salaries, proportiontocut=0.2)
-trimmed_mean_master_female = trim_mean(master_female_salaries, proportiontocut=0.2)
-trimmed_mean_master_total = trim_mean(master_total_salaries, proportiontocut=0.2)
-trimmed_mean_phd_male = trim_mean(phd_male_salaries, proportiontocut=0.2)
-trimmed_mean_phd_female = trim_mean(phd_female_salaries, proportiontocut=0.2)
-trimmed_mean_phd_total = trim_mean(phd_total_salaries, proportiontocut=0.2)
+trimmed_mean_bachelor_male = trim_mean(bachelor_male_salaries, proportiontocut=0.1)
+trimmed_mean_bachelor_female = trim_mean(bachelor_female_salaries, proportiontocut=0.1)
+trimmed_mean_bachelor_total = trim_mean(bachelor_total_salaries, proportiontocut=0.1)
+trimmed_mean_master_male = trim_mean(master_male_salaries, proportiontocut=0.1)
+trimmed_mean_master_female = trim_mean(master_female_salaries, proportiontocut=0.1)
+trimmed_mean_master_total = trim_mean(master_total_salaries, proportiontocut=0.1)
+trimmed_mean_phd_male = trim_mean(phd_male_salaries, proportiontocut=0.1)
+trimmed_mean_phd_female = trim_mean(phd_female_salaries, proportiontocut=0.1)
+trimmed_mean_phd_total = trim_mean(phd_total_salaries, proportiontocut=0.1)
+
+# print(trimmed_mean_male, trimmed_mean_female, trimmed_mean_total, trimmed_mean_bachelor_male, trimmed_mean_master_male, trimmed_mean_phd_male, trimmed_mean_bachelor_female, trimmed_mean_master_female, trimmed_mean_phd_female, trimmed_mean_bachelor_total, trimmed_mean_master_total, trimmed_mean_phd_total)
 
 
 # Variance (total, male and female):
@@ -205,10 +209,13 @@ variance_phd = statistics.variance(phd_salaries)
 
 
 # standard deviation (education level):
+standard_deviation_bachelor = statistics.stdev(bachelor_salaries)
 sample_std_dev_bachelor = statistics.pstdev(bachelor_salaries)
 
+standard_deviation_master = statistics.stdev(master_salaries)
 sample_std_dev_master = statistics.pstdev(master_salaries)
 
+standard_deviation_phd = statistics.stdev(phd_salaries)
 sample_std_dev_phd = statistics.pstdev(phd_salaries)
 
 
@@ -269,7 +276,7 @@ correlation_exp_sal = covariance_exp_sal/(standard_deviation_total*standard_devi
 # using library scipy:
 # from scipy.stats import pearsonr
 # correlation_exp_sal = pearsonr(salaries, experience)
-
+print(covariance_exp_sal, correlation_exp_sal)
 
 # probability density function (total):
 from scipy.stats import norm

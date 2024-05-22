@@ -30,7 +30,7 @@ trimmed_mean_female_el = [main.trimmed_mean_bachelor_female, main.trimmed_mean_m
                           main.trimmed_mean_phd_female]
 trimmed_mean_total_el = [main.trimmed_mean_bachelor_total, main.trimmed_mean_master_total, main.trimmed_mean_phd_total]
 
-avg_less = round((1-(main.arith_mean_female/main.arith_mean_male))*100, 2)
+avg_less = round((1-(main.trimmed_mean_female/main.trimmed_mean_male))*100, 2)
 
 # lists for labeling
 education_level = ["Bachelor's", "Master's", "PhD"]
@@ -304,7 +304,7 @@ plt.plot(main.experience, slope * np.array(main.experience) + intercept, color='
 
 # setting of titles and labels
 plt.suptitle('Connection between years of experience and salary', fontsize=14, fontweight='bold')
-ax1.set_title('High covariance', fontsize=12)
+ax1.set_title('Positive covariance', fontsize=12)
 ax2.set_title('High correlation', fontsize=12)
 
 ax1.set_xlabel('Years of Experience', fontsize=9, fontweight='bold')
